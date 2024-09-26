@@ -9,18 +9,18 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get Lastest code
+    - name: 🚚 Get Latest code
       uses: actions/checkout@v4
 
     - name: Use node.js 18
       uses: actions/setup-node@v4
       with:
         node-version: '18'
+
     - name: Build Project
       run: |
         npm install
         npm run build
-        
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -30,3 +30,17 @@ jobs:
         password: ${{ secrets.GIT_CPANEL_REACT_PWD }}
         protocol: ${{ secrets.GIT_CPANEL_REACT_PROTOCOL }}
         local-dir: ./dist/
+
+    - name: Send Telegram Notification on Success
+      if: success()
+      run: |
+        curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+        -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+        -d text="✅ Deploy completed successfully for the project on branch 'main'!"
+    
+    - name: Send Telegram Notification on Failure
+      if: failure()
+      run: |
+        curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+        -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+        -d text="❌ Deploy failed for the project on branch 'main'. Please check the logs."
