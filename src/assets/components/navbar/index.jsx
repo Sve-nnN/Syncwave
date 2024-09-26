@@ -9,7 +9,6 @@ import {
 
 export default function StickyNavbar() {
   const [openNav, setOpenNav] = React.useState(false);
-  //Testing workflow
   React.useEffect(() => {
     window.addEventListener(
       "resize",
