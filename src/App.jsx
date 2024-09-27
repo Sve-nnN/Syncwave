@@ -5,12 +5,14 @@ import "./App.css";
 import Navbar from "./assets/components/navbar";
 import Hero from "./assets/components/hero";
 import Footer from "./assets/components/footer";
+import Characteristics from "./assets/components/characteristics";
 
 function App() {
   return (
     <>
       <Navbar />
       <Hero />
+      <Characteristics />
       <Footer />
     </>
   );
