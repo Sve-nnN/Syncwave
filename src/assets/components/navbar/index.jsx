@@ -26,7 +26,7 @@ export default function StickyNavbar() {
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
-          Pages
+          Sobre Nosotros
         </a>
       </Typography>
       <Typography
@@ -36,7 +36,7 @@ export default function StickyNavbar() {
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
-          Account
+          Características
         </a>
       </Typography>
       <Typography
@@ -46,7 +46,7 @@ export default function StickyNavbar() {
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
-          Blocks
+        Tecnología
         </a>
       </Typography>
       <Typography
@@ -56,7 +56,7 @@ export default function StickyNavbar() {
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
-          Docs
+          Contacto
         </a>
       </Typography>
     </ul>
