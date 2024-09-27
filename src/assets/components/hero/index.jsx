@@ -11,7 +11,7 @@ export default function Hero() {
           Somos la solución ideal para empresas que buscan automatizar y
           optimizar la gestión de sus empleados.
         </p>
-        <div>
+        <div className=" flex gap-3">
           <CallToAction
             estilos="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
             text="Conocer más"
