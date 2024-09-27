@@ -1,4 +1,5 @@
 import CallToAction from "../calltoaction";
+import HeroImg from "../../img/hero.jpg";
 export default function Hero() {
   return (
     <section className="flex flex-col-reverse md:flex-row items-center justify-between px-8 py-16 md:px-16">
@@ -20,7 +21,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="w-full md:w-1/2">
-        <img src="../../img/hero.jpg" alt="hero" className="w-full h-auto" />
+        <img src={HeroImg} alt="hero" className="w-full h-auto" />
       </div>
     </section>
   );
