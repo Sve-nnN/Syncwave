@@ -12,3 +12,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* Asegúrate de que el contenedor tenga un ancho adecuado */
+.calendar-container {
+  width: 100%; /* O un valor específico */
+  height: 100%;
+}
+/*
+/* Agrega esta línea al principio de tu archivo CSS *//*
+@import "react-big-calendar/lib/css/react-big-calendar.css";*/

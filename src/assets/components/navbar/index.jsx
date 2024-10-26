@@ -2,11 +2,12 @@ import React from "react";
 import Logo from "../../img/Syncwave-logo.svg";
 import {
   Navbar,
-  MobileNav,
+  Collapse,
   Typography,
   Button,
   IconButton,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom"; // Importa Link desde react-router-dom
 
 export default function StickyNavbar() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -25,9 +26,9 @@ export default function StickyNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <Link to="#about" className="flex items-center">
           Sobre Nosotros
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -35,9 +36,9 @@ export default function StickyNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <Link to="#features" className="flex items-center">
           Características
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -45,9 +46,9 @@ export default function StickyNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
-        Tecnología
-        </a>
+        <Link to="#technology" className="flex items-center">
+          Tecnología
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -55,9 +56,19 @@ export default function StickyNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <Link to="#contact" className="flex items-center">
           Contacto
-        </a>
+        </Link>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <Link to="/dashboard" className="flex items-center">
+          Dashboard
+        </Link>
       </Typography>
     </ul>
   );
@@ -70,8 +81,8 @@ export default function StickyNavbar() {
             <img src={Logo} alt="logo" className="h-8 w-auto" />
             <Typography
               as="a"
-              href="#"
-              className="mr-4 cursor-pointer py-1.5 text-lg  font-extrabold"
+              href="/"
+              className="mr-4 cursor-pointer py-1.5 text-lg font-extrabold"
             >
               SyncWave
             </Typography>
@@ -80,20 +91,24 @@ export default function StickyNavbar() {
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
             <div className="flex items-center gap-x-1">
-              <Button
-                variant="text"
-                size="sm"
-                className="hidden lg:inline-block"
-              >
-                <span>Log In</span>
-              </Button>
-              <Button
-                variant="outlined"
-                size="sm"
-                className="hidden lg:inline-block"
-              >
-                <span>Sign in</span>
-              </Button>
+              <Link to="/login">
+                <Button
+                  variant="text"
+                  size="sm"
+                  className="hidden lg:inline-block"
+                >
+                  <span>Log In</span>
+                </Button>
+              </Link>
+              <Link to="/login">
+                <Button
+                  variant="outlined"
+                  size="sm"
+                  className="hidden lg:inline-block"
+                >
+                  <span>Sign in</span>
+                </Button>
+              </Link>
             </div>
             <IconButton
               variant="text"
@@ -134,17 +149,21 @@ export default function StickyNavbar() {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
+        <Collapse open={openNav}>
           {navList}
           <div className="flex items-center gap-x-1">
-            <Button fullWidth variant="text" size="sm" className="">
-              <span>Log In</span>
-            </Button>
-            <Button fullWidth variant="gradient" size="sm" className="">
-              <span>Sign in</span>
-            </Button>
+            <Link to="/login">
+              <Button fullWidth variant="text" size="sm">
+                <span>Log In</span>
+              </Button>
+            </Link>
+            <Link to="/login">
+              <Button fullWidth variant="gradient" size="sm">
+                <span>Sign in</span>
+              </Button>
+            </Link>
           </div>
-        </MobileNav>
+        </Collapse>
       </Navbar>
     </div>
   );
